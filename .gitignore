@@ -2,3 +2,6 @@ downloads/cheryne.zip
 downloads/pics_for_kari.zip
 *.icloud
 .DS_Store
+
+# Jekyll generates this directory; publish from the source files.
+/_site/
