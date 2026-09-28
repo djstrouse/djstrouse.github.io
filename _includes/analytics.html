@@ -1,0 +1,19 @@
+{% if site.google_analytics %}
+<!-- Google Analytics 4: only track the public site, never local previews. -->
+<script>
+  (function () {
+    if (window.location.hostname !== 'djstrouse.com' &&
+        window.location.hostname !== 'www.djstrouse.com') return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', {{ site.google_analytics | jsonify }});
+
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + {{ site.google_analytics | jsonify }};
+    document.head.appendChild(tag);
+  })();
+</script>
+{% endif %}
