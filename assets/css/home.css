@@ -1,0 +1,29 @@
+/* Responsive layout for the existing homepage and publication list. */
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: #292c2c; background: #fff; }
+body, td, th, tr, p, a, strong { font-family: Lato, Verdana, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; }
+table.home { width: 100%; max-width: 860px; margin: 20px auto; }
+h1 { font-size: 34px; line-height: 1.2; font-weight: 500; margin: 12px 0 24px; text-align: center; }
+h2 { font-size: 24px; line-height: 1.3; font-weight: 500; margin: 12px 0 18px; }
+h3 { font-size: 20px; line-height: 1.4; font-weight: 500; }
+p { margin: 0 0 16px; }
+img { max-width: 100%; height: auto; }
+.profile td:last-child img { display: block; margin: auto; }
+.paperthumb { width: 160px; display: block; }
+.papertitle { font-weight: 700; }
+.papertextcol { overflow-wrap: anywhere; }
+.papertextcol p { margin-top: 12px; }
+a { color: #486a7b; text-decoration: none; }
+a:hover { color: #294c60; text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid #486a7b; outline-offset: 3px; }
+@media (max-width: 640px) {
+  table.home { margin: 12px auto; }
+  .profile > tbody > tr { display: flex; flex-direction: column-reverse; }
+  .profile > tbody > tr > td { display: block; width: auto; padding: 12px 20px; }
+  .profile td:last-child img { width: 180px; }
+  h1 { margin-top: 0; }
+  tr:has(> .paperthumbcol) { display: block; padding: 20px; border-top: 1px solid #e4e7e8; }
+  .paperthumbcol, .papertextcol { display: block; width: auto; padding: 0; }
+  .paperthumbcol { margin-bottom: 16px; }
+  .paperthumb { width: 120px; max-height: 140px; object-fit: contain; object-position: left center; }
+}
