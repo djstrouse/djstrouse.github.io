@@ -1,0 +1,90 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+img{max-width:100%;display:block}
+.shell{width:min(1080px,calc(100% - 80px));margin:auto}
+.site-header{height:110px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font-size:21px;font-weight:650;letter-spacing:-.7px}
+.site-nav{display:flex;gap:30px;font-size:14px}
+.site-nav .selected{color:var(--accent)}
+.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:2px;font-weight:650;color:var(--accent)}
+.intro{padding:64px 0 45px;max-width:740px}
+.intro h1{margin:8px 0 20px;font:normal 60px/1.08 var(--heading);letter-spacing:-2px}
+.intro p{font-size:17px;line-height:1.8;color:var(--muted);max-width:640px}
+.intro p a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+.archive-heading{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:17px;margin-bottom:8px}
+.archive-heading h2{font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;margin:0}
+.archive-heading span{font-size:12px;color:var(--muted)}
+.post-list{list-style:none;padding:0;margin:0}
+.card{display:grid;grid-template-columns:176px 1fr;gap:32px;padding:30px 0;border-bottom:1px solid var(--line);align-items:center}
+.thumb{display:block;position:relative;overflow:hidden;background:#e8e8e3;aspect-ratio:4/3}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s}
+.thumb:hover img{transform:scale(1.04)}
+.card time{font-size:12px;color:var(--muted)}
+.card h2{font:normal 27px/1.25 var(--heading);letter-spacing:-.4px;max-width:660px;margin:7px 0 10px}
+.card p{color:var(--muted);font-size:14px;line-height:1.65;margin:0;max-width:600px}
+.footer{margin-top:72px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+.article{max-width:720px;margin:55px auto 0}
+.back{font-size:13px;color:var(--accent)}
+.article-header{padding:30px 0 32px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.article-header h1{font:normal 45px/1.13 var(--heading);letter-spacing:-1.2px;margin:12px 0 22px}
+.meta{font-size:12px;color:var(--muted)}
+.deck{font:normal 22px/1.6 var(--heading);color:var(--muted);margin:25px 0 0}
+.prose{font:20px/1.8 var(--body)}
+.prose p{margin:0 0 1.25em}
+.prose a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.prose img{height:auto;max-width:100%;margin:28px auto}
+.prose strong{font-weight:700}
+.prose p:has(>strong:only-child){font:600 25px/1.4 var(--heading);margin-top:44px}
+.prose pre{overflow:auto;font-size:14px}
+.prose table{max-width:100%}
+.prose iframe{max-width:100%}
+.prose h2,.prose h3{line-height:1.3}
+.article-hero{width:100%;max-height:400px;object-fit:cover;margin:26px 0}
+.editorial{--paper:#faf9f6;--ink:#292c2c;--muted:#69716f;--accent:#486a7b;--line:#dedfd8;--heading:Georgia,"Times New Roman",serif;--body:Georgia,"Times New Roman",serif}
+
+.skip-link{position:absolute;left:20px;top:-100px;padding:10px;background:var(--paper);z-index:2}
+
+.skip-link:focus{top:10px}
+
+.comments{border-top:1px solid var(--line);margin-top:48px;padding-top:24px;font:16px/1.6 system-ui,sans-serif}
+
+.comments h2{font:normal 25px/1.4 var(--heading)}
+
+@media(max-width:700px){
+ .shell{width:calc(100% - 36px)}
+
+ .site-header{height:80px}
+
+ .site-nav{gap:20px}
+
+ .intro{padding:35px 0 30px}
+
+ .intro h1{font-size:42px}
+
+ .intro p{font-size:15px}
+
+ .card{grid-template-columns:100px 1fr;gap:18px;padding:23px 0;align-items:start}
+
+ .card h2{font-size:21px}
+
+ .card p{font-size:13px}
+
+ .card time{font-size:10px}
+
+ .article{margin-top:30px}
+
+ .article-header h1{font-size:34px}
+
+ .deck{font-size:20px}
+
+ .prose{font-size:18px}
+
+ .footer{margin-top:45px}
+
+ .archive-heading span{font-size:10px}
+
+}

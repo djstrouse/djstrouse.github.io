@@ -1,0 +1,33 @@
+---
+layout: editorial-base
+---
+<main id="main" class="article">
+  <a class="back" href="{{ '/blog/' | relative_url }}">← All posts</a>
+  <article>
+    <header class="article-header">
+      {% assign post_date = page.modified | default: page.date %}
+      <div class="meta"><time datetime="{{ post_date | date_to_xmlschema }}">{{ post_date | date: '%B %-d, %Y' }}</time></div>
+      <h1>{{ page.title }}</h1>
+      {% if page.description or page.tagline %}<p class="deck">{{ page.description | default: page.tagline }}</p>{% endif %}
+    </header>
+    <div class="prose">{{ content }}</div>
+  </article>
+  {% if page.comments %}
+  <aside class="comments" aria-label="Comments">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = {{ page.url | absolute_url | jsonify }};
+      };
+      (function () {
+        var script = document.createElement('script');
+        script.src = 'https://djstrouse.disqus.com/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the comments.</noscript>
+  </aside>
+  {% endif %}
+</main>

@@ -1,29 +1,29 @@
-{% include head-dark.html %}
-
-    <div id='bump'>
-        <section class="article archive">
-          <article class="archive-wrap">
-            <p class="intro">This is a blog I used to maintain before I started my PhD (up until 2012). Popular posts include: <a href="http://djstrouse.com/guide-to-applying-to-us-science-phd-programs-and-fellowships">my advice</a> on applying to a PhD, <a href="http://djstrouse.com/college-what-i-did-right-and-where-i-screwed-up">my reflections</a> on what I did right and wrong in college, <a href="http://djstrouse.com/summiting-monte-rosa-cults-thoughts-and-chocolate-at-4500m">my thoughts</a> on summiting Monte Rosa, and <a href="http://djstrouse.com/dispatch-from-england-part-i-life-at-churchill-college">my series</a> on my year in Cambridge as a Churchill Scholar.</p>
-            <br>
-            <br>
-              <ol class="post-list">
-                  <lh style="text-align: center"><h2><span class="bb"><a href="{{ page.url }}">{{ page.title }}</a></span></h2></lh>
-                  {% for post in site.categories.blog %}
-                  <li>
-                     <a href="{{ site.url }}{{ post.url }}">
-                     <div class="featured-image-small" style="background-image: url({{ site.url }}/images/{{ post.image.thumb }})">
-                     </div>
-                     </a>
-                     <div class="deets left-slide" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-                     <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
-                     {% if post.modified %}<p class="date"><span class="date"><time datetime="{{ page.modified }}" itemprop="dateModified">Updated on {{ post.modified | date: "%B %d, %Y" }}</time></span>{% else %}<p class="date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time>{% endif %}</p>
-                     <p class="summary">{% if post.description %}{{ post.description  | strip_html | strip_newlines | truncate: 120 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}</p>
-                     </div>
-                  </li>
-                  {% endfor %}
-              </ol>
-          </article>
-        </section>
-    </div>
-
-{% include footer.html %}
+---
+layout: editorial-base
+---
+<main id="main">
+  <section class="intro">
+    <span class="eyebrow">The archive · 2008–2012</span>
+    <h1>{{ page.title }}</h1>
+    <p>This is a blog I used to maintain before I started my PhD (up until 2012). Popular posts include: <a href="{{ '/guide-to-applying-to-us-science-phd-programs-and-fellowships' | relative_url }}">my advice</a> on applying to a PhD, <a href="{{ '/college-what-i-did-right-and-where-i-screwed-up' | relative_url }}">my reflections</a> on what I did right and wrong in college, <a href="{{ '/summiting-monte-rosa-cults-thoughts-and-chocolate-at-4500m' | relative_url }}">my thoughts</a> on summiting Monte Rosa, and <a href="{{ '/dispatch-from-england-part-i-life-at-churchill-college' | relative_url }}">my series</a> on my year in Cambridge as a Churchill Scholar.</p>
+  </section>
+  <div class="archive-heading">
+    <h2>All posts</h2>
+    <span>{{ site.categories.blog | size }} posts · Newest first</span>
+  </div>
+  <ol class="post-list">
+    {% for post in site.categories.blog %}
+    <li class="card">
+      <a class="thumb" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }}">
+        {% if post.image.thumb %}<img src="{{ '/images/' | append: post.image.thumb | relative_url }}" alt="" loading="lazy">{% endif %}
+      </a>
+      <div>
+        {% assign post_date = post.modified | default: post.date %}
+        <time datetime="{{ post_date | date_to_xmlschema }}">{{ post_date | date: '%B %-d, %Y' }}</time>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.description | default: post.excerpt | strip_html }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</main>
